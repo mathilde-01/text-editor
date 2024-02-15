@@ -18,13 +18,62 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
-    ],
+    // Webpack plugin generating html
+			new HtmlWebpackPlugin({
+				template: "./index.html",
+				title: "Just Another Text Editor",
+			}),
 
-    module: {
-      rules: [
-        
-      ],
-    },
-  };
+			// Injects service worker
+			new InjectManifest({
+				swSrc: "./src-sw.js",
+				swDest: "src-sw.js",
+			}),
+
+			// Creates manifest.json file
+			new WebpackPwaManifest({
+				fingerprints: false,
+				inject: true,
+				name: "Just Another Text Editor",
+				short_name: "J.A.T.E.",
+				description: "Create notes with or without an internet connection",
+				background_color: "#272822",
+				theme_color: "#272822",
+				start_url: "./",
+				publicPath: "./",
+				icons: [
+					{
+						src: path.resolve("src/images/logo.png"),
+						sizes: [96, 128, 192, 256, 384, 512],
+						destination: path.join("assets", "icons"),
+					},
+				],
+			}),
+		],
+
+		module: {
+			rules: [
+				// CSS loaders
+				{
+					test: /\.css$/i,
+					use: ["style-loader", "css-loader"],
+				},
+				// Babel --in order to use ES6
+				{
+					test: /\.m?js$/,
+					exclude: /node_modules/,
+					use: {
+						loader: "babel-loader",
+						options: {
+							presets: ["@babel/preset-env"],
+							plugins: [
+								"@babel/plugin-proposal-object-rest-spread",
+								"@babel/transform-runtime",
+							],
+						},
+					},
+				},
+			],
+		},
+	};
 };
