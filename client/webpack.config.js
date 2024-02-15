@@ -27,7 +27,7 @@ module.exports = () => {
 			// Injects service worker
 			new InjectManifest({
 				swSrc: "./src-sw.js",
-				swDest: "src-sw.js",
+				swDest: "dist/src-sw.js",
 			}),
 
 			// Creates manifest.json file

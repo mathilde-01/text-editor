@@ -33,5 +33,13 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 WHEN I deploy to Render  
 THEN I should have proper build scripts for a webpack application  
 
+## Usage 
+To use the application from the command line (after installing dependencies):  
+- Open the root directory of the repository in your terminal or bash 
+- Bundle the front-end code by entering `npm run build` in the command line  
+- Start the server by entering `npm run start` in the command line.
+- Go to the port on your local host  
+- Click the "Install" button  
+
 ## Credits
-[Bootcampspot.com]()
+[Bootcampspot.com](https://bootcampspot.instructure.com/courses/4347/assignments/62247?module_item_id=1082446)
