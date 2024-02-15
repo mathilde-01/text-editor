@@ -1,6 +1,8 @@
 # text-editor
  This app is a text editor that runs in the browser. The app is a single-page application that meets the PWA criteria. Additionally, it features a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline.  
 
+[Deployed application]( https://text-editor-oxht.onrender.com/)  
+
 ## User Story
 AS A developer  
 I WANT to create notes or code snippets with or without an internet connection  
@@ -40,6 +42,7 @@ To use the application from the command line (after installing dependencies):
 - Start the server by entering `npm run start` in the command line.
 - Go to the port on your local host  
 - Click the "Install" button  
+
 
 ## Credits
 [Bootcampspot.com](https://bootcampspot.instructure.com/courses/4347/assignments/62247?module_item_id=1082446)
